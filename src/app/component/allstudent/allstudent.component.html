@@ -1,0 +1,36 @@
+<app-navbar-admin></app-navbar-admin>
+<div class="container" style="display: flex;justify-content: center; ">
+    <!-- <p>allstudent works!</p> -->
+    <table class="table table-light table-hover " style="width: 1000px;margin-top: 20px;">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Email</th>
+                <th>Department</th>
+                <th>Profile</th>
+                <th>Attendance</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let student of student">
+                <td>{{ student.name }}</td>
+                <td>{{ student.role }}</td>
+                <td>{{ student.email }}</td>
+                <td>{{ student.dept }}</td>
+                <td>
+                    <button class="btn btn-outline-primary" (click)="showStudentProfile(student)">
+                        <i class="fa-solid fa-user"></i>
+                    </button>
+                </td> 
+                <td>
+                    <button class="btn btn-outline-success" (click)="showAttendance(student)">
+                        <i class="fa-regular fa-calendar-check"></i>
+                    </button>
+                </td>
+                
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    

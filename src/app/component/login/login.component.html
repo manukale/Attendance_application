@@ -1,0 +1,26 @@
+<div class="container login-style ">
+
+    <form class="text"  #myForm="ngForm" (ngSubmit)="loginForm(myForm.value)">
+        <h3 class="heading"> Login... </h3>
+        <label>Enter Email:</label>
+        <input placeholder="Enter Email Here" type="text"  name="email" [(ngModel)]="user.email" #email="ngModel"/>
+
+        <label>Enter Password:</label>
+        <input placeholder="Enter Password Here" type="password"  name="password" [(ngModel)]="user.password" #password="ngModel"/>
+
+        <div>Login As:</div>
+        <div class="radio-btn"  >
+            <input  type="radio" name="role" id="inlineRadio1" value="Student" [(ngModel)]="user.role" #role="ngModel">
+            <label class="form-check-label" for="inlineRadio1">Student</label>
+         
+            <input type="radio" name="role" id="inlineRadio2" value="Teacher" [(ngModel)]="user.role" #role="ngModel">
+            <label class="form-check-label" for="inlineRadio2">Teacher</label>
+          
+            <input  type="radio" name="role" id="inlineRadio3" value="Admin" [(ngModel)]="user.role" #role="ngModel">
+            <label class="form-check-label" for="inlineRadio3">Admin </label>
+          </div>
+
+        <button class="btn btn-primary mt-5" type="submit">Login Here</button>
+    </form>
+    <h6 style="margin-top: 385px; text-align: center;">Don't Have Account? <a href="/register">Sign Up</a></h6>
+</div>

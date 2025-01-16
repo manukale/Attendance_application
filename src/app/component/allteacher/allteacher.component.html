@@ -1,0 +1,25 @@
+<app-navbar-admin></app-navbar-admin>
+<div class="container" style="display: flex;justify-content: center; ">
+    <!-- <p>allstudent works!</p> -->
+    <table class="table table-light table-hover " style="width: 1000px;margin-top: 20px;">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Email</th>
+                <th>Department</th>
+                <th></th>
+                <!-- <th></th> -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let teacher of teacher">
+                <td>{{ teacher.name }}</td>
+                <td>{{ teacher.role }}</td>
+                <td>{{ teacher.email }}</td>
+                <td>{{ teacher.dept }}</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    

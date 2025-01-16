@@ -1,0 +1,27 @@
+<app-navbar-student></app-navbar-student>
+
+<div class="container">
+    <h4 style="margin-top: 20px;"> User:</h4>
+
+    <form class="text" #myForm = "ngForm" (ngSubmit)="updateUser(myForm.value)">
+        <div class="container" style="display: flex; flex-direction: column; gap: 10px; justify-content: center;">
+            <!-- <img src="{{currentUser.photo}}" class=" profilePhoto"/> -->
+            <label>Name:</label>
+            <input type="text" name="name" [(ngModel)]="currentUser.name" #currentUser.name="ngModel" style="width:500px" size="small" />
+            <label>Email:</label>
+            <input type="text" name="email" [(ngModel)]="currentUser.email" #currentUser.email="ngModel" style="width:500px" size="small" />
+            <label>Department:</label>
+            <input type="text" name="dept" [(ngModel)]="currentUser.dept" #currentUser.dept="ngModel" style="width:500px" size="small" />
+            <label>Role:</label>
+            <input type="text" name="role" [(ngModel)]="currentUser.role" #currentUser.role="ngModel" style="width:500px" size="small" disabled />
+
+           
+                <label >change profile photo:</label>
+                <input class="form-control form-control-sm" name="photo" type="file" [(ngModel)]="currentUser.photo" #currentUser.photo="ngModel" style="width:500px">
+        
+            <button class="btn btn-primary" style="width:500px" type="submit">Update</button>
+
+        </div>
+    </form>
+
+</div>

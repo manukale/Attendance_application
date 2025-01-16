@@ -1,0 +1,36 @@
+.register-style{
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    /* align-content: center; */
+    border: 2px solid rgb(128, 128, 211);
+    box-shadow: 50px;
+    border-radius: 5px;
+    margin-top: 50px;
+    /* padding: 30px; */
+    width: 400px;
+    height: fit-content;
+
+   
+}
+.heading{
+    color: rgb(107, 107, 225);
+    font-weight: bold;
+    align-items: center;
+    margin-top: 5px;
+    padding: 5px;
+    font-size: x-large;
+}
+.text{
+    display: flex;
+    /* height: 20px;  */
+    margin: 5px; 
+    gap: 9px;
+    padding: 5px;
+    flex-direction: column;
+}
+.radio-btn{
+    display: flex;
+    /* flex-wrap: wrap; */
+    gap: 10px;
+}

@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg " style="background-color: #9bcbde">
+    <div class="container-fluid" >
+
+        <div style="display: flex; gap: 7px;">
+            <div >
+                <!-- <img src="profilePhoto/girl1.png" class=" profilePhoto"/> -->
+                <!-- <img src="{{currentUser.photo}}" class=" profilePhoto"/> -->
+            </div>            
+            <div style="display: flex; flex-wrap: wrap; flex-direction: column;">          
+                <h4>Hello,{{currentUser.name}}</h4>
+                <h6>{{currentUser.dept}} , {{currentUser.role}}</h6>
+            </div>
+        </div>
+
+        <span >
+            <button class="btn" type="button"  routerLink="/markAttendance"><i class="fa-solid fa-clipboard-user"></i>
+                Mark Attendance
+            </button>
+            <button class="btn" type="button" (click)="attendanceHistory(currentUser)"><i class="fa-solid fa-clock-rotate-left"></i>
+                Attendance History
+            </button>
+            <button class="btn" type="button" routerLink="/studentProfileManager"><i class="fa-solid fa-gears"></i>
+                Profile Manager
+            </button>
+            <button class="btn " type="submit" (click)="signOut()"><i class="fa-solid fa-power-off"></i>
+                Signout
+            </button>
+          </span>
+    </div>
+</nav>
+
+<!-- <img src="profilePhoto\girl.png" class="rounded profilePhoto"/> -->

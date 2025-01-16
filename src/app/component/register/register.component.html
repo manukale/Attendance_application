@@ -1,0 +1,47 @@
+<div class="container register-style ">
+
+    <form class="container text" [formGroup]="myForm" (ngSubmit)="registerUser()">
+        <h3 class="heading"> Register User... </h3>
+        <label>Enter Name:</label>
+        <input placeholder="Enter Name Here" type="text" name="name" formControlName="name" />
+        <div *ngIf="myForm.get('name')?.invalid && myForm.get('name')?.touched " class="text-danger">
+            Name is required
+        </div>
+
+        <label>Enter Department:</label>
+        <input placeholder="Enter Department Here" type="text" name="dept" formControlName="dept" />
+        <div *ngIf="myForm.get('dept')?.invalid " class="text-danger">
+            Deptartment is required
+        </div>
+
+        <label>Enter Email:</label>
+        <input placeholder="Enter Email Here" type="text" name="email" formControlName="email" />
+        <div *ngIf="myForm.get('email')?.invalid " class="text-danger">
+            email is required
+        </div>
+
+        <label>Enter Password:</label>
+        <input placeholder="Enter Password Here" type="password" name="password" formControlName="password"
+            minlength="8" />
+        <div *ngIf="myForm.get('password')?.invalid " class="text-danger">
+            password Should be 8 characters
+        </div>
+
+        <div>Register As:</div>
+        <div class="radio-btn">
+            <input type="radio" name="role" id="inlineRadio1" value="Student" formControlName="role">
+            <label class="form-check-label" for="inlineRadio1">Student</label>
+
+            <input type="radio" name="role" id="inlineRadio2" value="Teacher" formControlName="role">
+            <label class="form-check-label" for="inlineRadio2">Teacher</label>
+
+            <input type="radio" name="role" id="inlineRadio3" value="Admin" formControlName="role">
+            <label class="form-check-label" for="inlineRadio3">Admin </label>
+        </div>
+        <div *ngIf="myForm.get('role')?.invalid " class="text-danger">
+            Role is required
+        </div>
+        <button class="btn btn-primary " type="submit">Register</button>
+    </form>
+
+</div>

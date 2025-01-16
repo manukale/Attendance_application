@@ -1,0 +1,157 @@
+{
+  "user": [
+    {
+      "name": "manasi",
+      "email": "manasi@gmail.com",
+      "dept": "CSE",
+      "photo": "profilePhoto/girl.png",
+      "role": "Student",
+      "password": "manasi",
+      "id": "6adc"
+    },
+    {
+      "email": "abhijeet@gmail.com",
+      "password": "admin@123",
+      "role": "Teacher",
+      "name": "Abhijeet",
+      "dept": "Mech",
+      "id": "0a61"
+    },
+    {
+      "email": "Sai@gmail.com",
+      "password": "sai@123",
+      "role": "Admin",
+      "name": "Sai",
+      "dept": "Admin",
+      "id": "1da5"
+    },
+    {
+      "email": "shraddha@gmail.com",
+      "password": "admin@123",
+      "role": "Student",
+      "name": "Shraddha",
+      "dept": "Civil",
+      "id": "121c"
+    },
+    {
+      "email": "manali@gmail.com",
+      "password": "manali",
+      "role": "Teacher",
+      "name": "manali",
+      "dept": "CSE",
+      "id": "9fbf"
+      
+    },
+    {
+      "email": "akash@gmail.com",
+      "password": "akash",
+      "role": "Teacher",
+      "name": "akash",
+      "dept": "Mech",
+      "id": "de9a"
+    },
+    {
+      "email": "vaishnavi@gmail.com",
+      "password": "vaishnavi",
+      "role": "Teacher",
+      "name": "Vaishnavi",
+      "dept": "CSE",
+      "id": "02ca"
+    },
+    {
+      "id": "63ba",
+      "name": "user",
+      "email": "manasikale24@gmail.com",
+      "dept": "CSE",
+      "password": "12345678",
+      "role": "Student",
+      "photo": "profilePhoto/user.png"
+    },
+    {
+      "id": "4ee8",
+      "name": "Manasi Kale",
+      "email": "manasikale@gmail.com",
+      "dept": "CSE",
+      "password": "12345678",
+      "role": "Admin"
+    },
+    {
+      "id": "8d25",
+      "name": "manasi",
+      "email": "manasi@gmail",
+      "dept": "Mech",
+      "password": "147258369",
+      "role": "Admin"
+    },
+    {
+      "id": "db31",
+      "name": "jimmy",
+      "email": "jimmy@gmail.com",
+      "dept": "Mech",
+      "password": "admin@123",
+      "role": "Student"
+    }
+  ],
+  "attendance": [
+    {
+      "id": "100",
+      "name": "manasi",
+      "studId": "6adc",
+      "dept": "CSE",
+      "punchIn": "9:30 AM",
+      "punchOut": "5:30 PM",
+      "date": "28-12-2024",
+      "isPresent": true
+    },
+    {
+      "id": "101",
+      "studId": "63ba",
+      "dept": "CSE",
+      "name": "user",
+      "punchIn": "9:30 AM",
+      "punchOut": "5:30 PM",
+      "date": "27-12-2024",
+      "isPresent": true
+    },
+    {
+      "id": "201",
+      "studId": "db31",
+      "name": "jimmy",
+      "dept": "Mech",
+      "punchIn": "9:30",
+      "punchOut": "17:30",
+      "date": "27-12-2024",
+      "isPresent": true
+    },
+    {
+      "id": "dc0f",
+      "date": "2024-12-28",
+      "punchIn": "09:34",
+      "punchOut": "17:34",
+      "studId": "db31",
+      "dept": "Mech",
+      "name": "jimmy",
+      "isPresent": true
+    },
+    {
+      "id": "039c",
+      "name": "manasi",
+      "date": "2024-12-10",
+      "punchIn": "09:31",
+      "punchOut": "16:54",
+      "studId": "6adc",
+      "dept": "CSE",
+      "isPresent": true
+    },
+    {
+      "id": "0471",
+      "name": "manasi",
+      "date": "2025-01-01",
+      "punchIn": "09:30",
+      "punchOut": "17:53",
+      "studId": "6adc",
+      "dept": "CSE",
+      "isPresent": true
+    }
+  ]
+}

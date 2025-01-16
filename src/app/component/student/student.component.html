@@ -1,0 +1,41 @@
+<app-navbar-teacher></app-navbar-teacher>
+
+<div class="container" style="display: flex; flex-direction: row;justify-content: center;">
+    <div style="margin: 30px; ">
+        <table class="table table-light table-hover " style="width: 1000px;">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Profile Photo</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Department</th>
+                    <th>Role</th>
+                    <th>Attendance</th>
+                    <th>Profile</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let students of student">
+                    <td>{{ students.id }}</td>
+                    <!-- <td><img src="{{ students.photo }}" class="profilePhoto"/></td> -->
+                    <td>{{ students.name }}</td>
+                    <td>{{ students.email }}</td>
+                    <td>{{ students.dept }}</td>
+                    <td>{{ students.role }}</td>
+                    <td>
+                    <button class="btn btn-outline-success" (click)="showAttendance(students)">
+                        <i class="fa-regular fa-calendar-check"></i>
+                    </button>
+                </td>
+                <td>
+                    <button class="btn btn-outline-primary" (click)="showStudentProfile(students)">
+                        <i class="fa-solid fa-user"></i>
+                    </button>
+                </td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

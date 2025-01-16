@@ -1,0 +1,26 @@
+.profile{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 50px;
+    width: 400px;
+    height: fit-content;
+
+   
+}
+.profilePhoto{
+    
+    height: 60px;
+    width: 60px;
+    border-radius: 80px;
+}
+.heading{
+    color: rgb(107, 107, 225);
+    font-weight: bold;
+    align-items: center;
+    margin-top: 5px;
+    padding: 5px;
+    font-size: x-large;
+}
