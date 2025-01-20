@@ -1,5 +1,8 @@
 <app-navbar-admin></app-navbar-admin>
-<div class="container" style="display: flex;justify-content: center; ">
+<div class="container" style="display: flex;justify-content: center; flex-direction: column;">
+    <div>
+        <input id="search" [(ngModel)]="searchText" placeholder="Search" class="form-control" style="width:300px;margin: 10px; justify-self: right;margin-right: 120px;">
+    </div>
     <!-- <p>allstudent works!</p> -->
     <table class="table table-light table-hover " style="width: 1000px;margin-top: 20px;">
         <thead>
@@ -13,7 +16,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let teacher of teacher">
+            <tr *ngFor="let teacher of teacher | searchFilter : searchText: 'name' ">
                 <td>{{ teacher.name }}</td>
                 <td>{{ teacher.role }}</td>
                 <td>{{ teacher.email }}</td>

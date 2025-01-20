@@ -5,16 +5,20 @@ import { SessionStorageService } from '../../services/session-storage.service';
 import { CommonModule } from '@angular/common';
 import { NavbarTeacherComponent } from "../navbar-teacher/navbar-teacher.component";
 import { NavbarAdminComponent } from "../navbar-admin/navbar-admin.component";
+import { FormsModule } from '@angular/forms';
+import { SearchFilterPipe } from '../../pipes/search-filter.pipe';
 
 
 @Component({
   selector: 'app-student',
   standalone:true,
-  imports: [NavbarTeacherComponent, CommonModule, NavbarAdminComponent],
+  imports: [NavbarTeacherComponent, CommonModule, 
+    NavbarAdminComponent,FormsModule,SearchFilterPipe],
   templateUrl: './student.component.html',
   styleUrl: './student.component.css'
 })
 export class StudentComponent {
+  searchText:string=''
   student: any[] = [];
   currentUser: any
   constructor(private router: Router, private userService: UserDataService, private route: ActivatedRoute, private session: SessionStorageService) { }

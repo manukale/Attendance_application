@@ -1,6 +1,9 @@
 <app-navbar-teacher></app-navbar-teacher>
 
-<div class="container" style="display: flex;justify-content: center; ">
+<div class="container" style="display: flex;justify-content: center; flex-direction: column;">
+    <div>
+        <input id="search" [(ngModel)]="searchText" placeholder="Search" class="form-control" style="width:300px;margin: 10px; justify-self: right;margin-right: 120px;">
+    </div>
 <table class="table table-light table-hover " style="width: 1000px;margin-top: 20px;">
     <thead>
         <tr>
@@ -13,7 +16,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let attendance of attendance">
+        <tr *ngFor="let attendance of attendance | searchFilter: searchText: 'date' ">
             <td>{{ attendance.date }}</td>
             <td>{{ attendance.name }}</td>
             <td>{{ attendance.punchIn }}</td>

@@ -3,15 +3,18 @@ import { UserDataService } from '../../services/user-data.service';
 import { CommonModule } from '@angular/common';
 import { SessionStorageService } from '../../services/session-storage.service';
 import { NavbarTeacherComponent } from '../navbar-teacher/navbar-teacher.component';
+import { FormsModule } from '@angular/forms';
+import { SearchFilterPipe } from '../../pipes/search-filter.pipe';
 
 @Component({
   selector: 'app-all-attendance',
   standalone:true,
-  imports: [NavbarTeacherComponent,CommonModule],
+  imports: [NavbarTeacherComponent,CommonModule,FormsModule,SearchFilterPipe],
   templateUrl: './all-attendance.component.html',
   styleUrl: './all-attendance.component.css'
 })
 export class AllAttendanceComponent {
+  searchText:string =''
   attendance:any[]=[]
   currentUser : any
 constructor(private session : SessionStorageService,private userservice : UserDataService){}

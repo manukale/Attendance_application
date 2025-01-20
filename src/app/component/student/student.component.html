@@ -6,7 +6,10 @@
     <app-navbar-admin></app-navbar-admin>
     </div>
 
-<div class="container" style="display: flex; flex-direction: row;justify-content: center;">
+<div class="container" style="display: flex; flex-direction: row;justify-content: center;flex-direction: column;">
+    <div>
+        <input id="search" [(ngModel)]="searchText" placeholder="Search" class="form-control" style="width:300px;margin: 10px; justify-self: right;margin-right: 120px;">
+    </div>
     <div style="margin: 30px; ">
         <table class="table table-light table-hover " style="width: 1000px;">
             <thead>
@@ -21,7 +24,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let students of student">
+                <tr *ngFor="let students of student | searchFilter : searchText: 'name' ">
                     <td>{{ students.id }}</td>
                     <!-- <td><img src="{{ students.photo }}" class="profilePhoto"/></td> -->
                     <td>{{ students.name }}</td>
