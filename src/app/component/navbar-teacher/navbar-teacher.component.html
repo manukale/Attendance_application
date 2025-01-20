@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg " style="background-color: #9bcbde">
+<nav class="navbar navbar-expand-lg nav-style" >
     <div class="container-fluid">
         <!-- <div style="display: flex; flex-direction: column;">
             <h4>Hello,{{currentUser.name}}</h4>
@@ -15,16 +15,19 @@
             </div>
         </div>
         <span >
-            <button class="btn" type="button"  routerLink="/student"><i class="fa-solid fa-user-tie"></i>
+            <button class="btn btn-style" type="button"  routerLink="/home"><i class="fa-solid fa-home"></i>
+                Home
+            </button>
+            <button class="btn btn-style" type="button"  routerLink="/student"><i class="fa-solid fa-user-tie"></i>
                 Student
             </button>
-            <button class="btn" type="button" routerLink="/allAttendence"><i class="fa-solid fa-gears"></i>
+            <button class="btn btn-style" type="button" routerLink="/allAttendence"><i class="fa-solid fa-gears"></i>
                Attendance
             </button>
             <!-- <button class="btn" type="button" routerLink="/teacherpassword"><i class="fa-solid fa-rotate-right"></i>
                 Reset Password
             </button> -->
-            <button class="btn " type="submit" (click)="signOut()"><i class="fa-solid fa-power-off"></i>
+            <button class="btn  btn-style" type="submit" (click)="signOut()"><i class="fa-solid fa-power-off"></i>
                 Signout
             </button>
           </span>

@@ -4,12 +4,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { SessionStorageService } from '../../services/session-storage.service';
 import { CommonModule } from '@angular/common';
 import { NavbarTeacherComponent } from "../navbar-teacher/navbar-teacher.component";
+import { NavbarAdminComponent } from "../navbar-admin/navbar-admin.component";
 
 
 @Component({
   selector: 'app-student',
   standalone:true,
-  imports: [ NavbarTeacherComponent,CommonModule],
+  imports: [NavbarTeacherComponent, CommonModule, NavbarAdminComponent],
   templateUrl: './student.component.html',
   styleUrl: './student.component.css'
 })
@@ -41,7 +42,7 @@ name : data.name
     )
   }
   showStudentProfile(data : any){
-    this.router.navigate(['/studentProfile',data.id]),{
+    this.router.navigate(['/studentProfile',data.id],{
       queryParams:{
         name : data.name,
         dept:data.dept,
@@ -50,7 +51,7 @@ name : data.name
         email:data.email
 
       }
-    }
+    })
   }
 
 }

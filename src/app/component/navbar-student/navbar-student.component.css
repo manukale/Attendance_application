@@ -4,3 +4,15 @@
     width: 60px;
     border-radius: 80px;
 }
+.nav-style{
+    background-color: #255888;
+    color:#FFFFFF;
+}
+.btn-style{
+    background-color: #255888;
+    
+    color:#FFFFFF;
+    }
+    .btn-style:hover{
+        color:#41d3e0;
+    }

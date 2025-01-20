@@ -1,4 +1,11 @@
+<!-- <app-navbar-admin></app-navbar-admin> -->
+<div *ngIf="currentUser.role === 'Teacher'">
+<app-navbar-teacher></app-navbar-teacher>
+</div>
+<div *ngIf="currentUser.role === 'Admin'">
 <app-navbar-admin></app-navbar-admin>
+</div>
+
 <div class="container" style="display: flex;justify-content: center; ">
     <!-- <p>allstudent works!</p> -->
     <table class="table table-light table-hover " style="width: 1000px;margin-top: 20px;">

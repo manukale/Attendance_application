@@ -1,4 +1,33 @@
-<app-navbar-teacher></app-navbar-teacher>
+<!-- <app-navbar-teacher></app-navbar-teacher> -->
+<div *ngIf="currentUser.role === 'Teacher'">
+    <app-navbar-teacher></app-navbar-teacher>
+    </div>
+    <div *ngIf="currentUser.role === 'Admin'">
+    <app-navbar-admin></app-navbar-admin>
+    </div>
 
-<h3>student Profile</h3>
-<!-- <img src="{{user.photo}}" style="margin: 30px"/> -->
+<div class="container">
+    <h4 style="margin-top: 20px;"> User:</h4>
+
+    <form class="text"  >
+        <div class="container" style="display: flex; flex-direction: column; gap: 10px; justify-content: center;">
+            <!-- <img src="{{currentUser.photo}}" class=" profilePhoto"/> -->
+            <label>Name:</label>
+            <input type="text" name="name" [(ngModel)]="user.studentName" #user.studentName="ngModel" style="width:500px" size="small" />
+            <label>Email:</label>
+            <input type="text" name="email" [(ngModel)]="user.email" #user.email="ngModel" style="width:500px" size="small" />
+            <label>Department:</label>
+            <input type="text" name="dept" [(ngModel)]="user.dept" #user.dept="ngModel" style="width:500px" size="small" />
+            <label>Role:</label>
+            <input type="text" name="role" [(ngModel)]="user.role" #user.role="ngModel" style="width:500px" size="small" disabled />
+
+           
+                <!-- <label >change profile photo:</label>
+                <input class="form-control form-control-sm" name="photo" type="file" [(ngModel)]="currentUser.photo" #currentUser.photo="ngModel" style="width:500px"> -->
+        
+            <!-- <button class="btn btn-primary" style="width:500px" type="submit">Update</button> -->
+
+        </div>
+    </form>
+
+</div>

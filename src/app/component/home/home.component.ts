@@ -73,7 +73,7 @@ export class HomeComponent {
 
     showStudentProfile(stud : any){
       // console.log('showStudentProfile:',student);
-      this.router.navigate(['/studentProfile',stud.id]),{
+      this.router.navigate(['/studentProfile',stud.id],{
         queryParams:{
           name : stud.name,
           dept:stud.dept,
@@ -82,7 +82,7 @@ export class HomeComponent {
           email:stud.email
 
         }
-      }
+      })
     }
 
 

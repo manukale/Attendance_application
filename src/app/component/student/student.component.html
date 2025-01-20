@@ -1,4 +1,10 @@
-<app-navbar-teacher></app-navbar-teacher>
+<!-- <app-navbar-teacher></app-navbar-teacher> -->
+<div *ngIf="currentUser.role === 'Teacher'">
+    <app-navbar-teacher></app-navbar-teacher>
+    </div>
+    <div *ngIf="currentUser.role === 'Admin'">
+    <app-navbar-admin></app-navbar-admin>
+    </div>
 
 <div class="container" style="display: flex; flex-direction: row;justify-content: center;">
     <div style="margin: 30px; ">
@@ -6,7 +12,6 @@
             <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Profile Photo</th>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Department</th>
