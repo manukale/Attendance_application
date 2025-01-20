@@ -66,7 +66,7 @@ export class LoginComponent {
         this.userData[index])
 
         if (this.userData[index].role === 'Teacher') {
-          this.router.navigate(['/home', this.userData[index].id], {
+          this.router.navigate(['/home'], {
             queryParams: {
               name: this.userData[index].name,
               role: this.userData[index].role,
@@ -78,7 +78,7 @@ export class LoginComponent {
         if (this.userData[index].role === 'Admin') {
 
           // console.log('Admin');
-          this.router.navigate(['/adminHome',this.userData[index].id], {
+          this.router.navigate(['/adminHome'], {
             // queryParams : this.userData[index].name && this.userData[index].role
             // queryParams: {
             //   name: this.userData[index].name,
@@ -89,7 +89,7 @@ export class LoginComponent {
 
         }
         if (this.userData[index].role === 'Student') {
-          this.router.navigate(['/studentHome',this.userData[index].id], {
+          this.router.navigate(['/studentHome'], {
             // queryParams : this.userData[index].name && this.userData[index].role
             // queryParams: {
             //   name: this.userData[index].name,
