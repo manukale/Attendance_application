@@ -35,7 +35,7 @@ export const routes: Routes = [
 
     {path:"teacherprofile", component:TeacherProfilemanagerComponent, canActivate:[authGuard]},
     {path:"studentProfileManager", component:StudentProfileManagerComponent,canActivate:[authGuard]},
-    {path:"studentProfile/:id", component:StudentProfileComponent},
+    {path:"studentProfile/:id", component:StudentProfileComponent, canActivate:[authGuard]},
 
     {path:"teacherpassword", component:TeacherPasswordresetComponent, canActivate:[authGuard]},
 

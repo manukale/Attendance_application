@@ -40,7 +40,6 @@
       "name": "manali",
       "dept": "CSE",
       "id": "9fbf"
-      
     },
     {
       "email": "akash@gmail.com",
@@ -150,6 +149,16 @@
       "punchIn": "09:30",
       "punchOut": "17:53",
       "studId": "6adc",
+      "dept": "CSE",
+      "isPresent": true
+    },
+    {
+      "id": "cfa7",
+      "date": "2025-01-21",
+      "punchIn": "09:20",
+      "punchOut": "15:20",
+      "studId": "6adc",
+      "name": "manasi",
       "dept": "CSE",
       "isPresent": true
     }
