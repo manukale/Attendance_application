@@ -1,0 +1,18 @@
+.charts {
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 5px;
+  }
+  
+  .pie {
+    height: 500px;
+    width: 450px;
+    border-radius: 5px;
+    /* box-shadow: 10px 10px 5px #aaaaaa; */
+    font-size: 10px;
+    font-weight: bold;
+    margin: 5px;
+  }
+ 

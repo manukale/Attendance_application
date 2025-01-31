@@ -1,12 +1,13 @@
 <app-navbar-admin></app-navbar-admin>
 
 
-<!-- <div class="charts">
+<div *ngIf="isBrowser" class="charts ">
+    <div class="pie">
+    <canvas baseChart 
+      [data]="pieChartData"
+      [options]="pieChartOptions"
+      [type]="'pie'">
+    </canvas>
+  </div>
 
-    <div class="pie" [chart]="donutChart" >
-   
-    </div>
-  
-    <div class="line" [chart]="lineChart"></div>
-
-  </div> -->
+</div>

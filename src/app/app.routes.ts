@@ -25,10 +25,10 @@ export const routes: Routes = [
     
     {path:"home", component:HomeComponent , canActivate:[authGuard],},
     {path:"studentHome", component:StudentHomeComponent,canActivate:[authGuard] },
-    {path:"adminHome", component:AdminHomeComponent, canActivate:[authGuard]},
+    {path:"adminHome", component:AdminHomeComponent,canActivate:[authGuard]},
 
     // {path:"studentnavbar/:id", component:NavbarTeacherComponent},
-    {path:"admin", component:AdminComponent, canActivate:[authGuard]},
+    {path:"admin", component:AdminComponent},
     {path:"student", component:StudentComponent, canActivate:[authGuard]},
     {path:"allstudent", component:AllstudentComponent, canActivate:[authGuard]},
     {path:"allteacher", component:AllteacherComponent, canActivate:[authGuard]},
