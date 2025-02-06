@@ -46,7 +46,7 @@ export class AdminHomeComponent {
 
 
   ngOnInit() {
-    this.userService.fetchUserData('user').subscribe((res) => {
+    this.userService.fetchUserData('user/getUser').subscribe((res) => {
       // Reset counts before processing
       this.studentCount = 0;
       this.teacherCount = 0;

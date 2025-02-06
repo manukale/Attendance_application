@@ -17,6 +17,8 @@ export class UserDataService {
   }
 
   addUserData(data: any , link:string): Observable<any> {
+    console.log("addUserData serive");
+    
     return this.http.post(`${this.URL}/${link}`, data)
   }
 

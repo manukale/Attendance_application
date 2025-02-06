@@ -30,7 +30,7 @@ export class LoginComponent {
     }
   }
   fetchData() {
-    this.userService.fetchUserData('user').subscribe((res) => {
+    this.userService.fetchUserData('user/getUser').subscribe((res) => {
       this.userData = res;
     });
   }

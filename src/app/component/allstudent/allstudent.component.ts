@@ -23,7 +23,7 @@ searchText :string =  '';
 constructor(private userService : UserDataService, private router : Router, private session : SessionStorageService){}
   ngOnInit(){
     this.currentUser=this.session.getUserData('user') 
-   this.userService.fetchUserData('user').subscribe((res)=>{
+   this.userService.fetchUserData('user/getUser').subscribe((res)=>{
 
       for (let i = 0; i < res.length; i++) {
         

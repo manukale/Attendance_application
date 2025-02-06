@@ -32,7 +32,7 @@ data.password = this.currentUser.password
   console.log(fileName); 
   data.photo = `profilePhoto/${fileName}`
 
-this.userService.updateUserData(this.currentUser.id,data, 'user').subscribe((res)=> {
+this.userService.updateUserData(this.currentUser.id,data, 'user/updateUser').subscribe((res)=> {
   alert("User Updated Successfully")
   // this.router.navigate(['/'],{})
 

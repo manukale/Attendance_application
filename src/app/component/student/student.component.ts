@@ -26,7 +26,7 @@ export class StudentComponent {
   ngOnInit() {
     this.currentUser = this.session.getUserData('user')
     this.student = []
-    this.userService.fetchUserData('user').subscribe((res) => {
+    this.userService.fetchUserData('user/getUser').subscribe((res) => {
       // console.log(res);
       for (let i = 0; i < res.length; i++) {
         if (res[i].role === 'Student' && res[i].dept === this.currentUser.dept) {

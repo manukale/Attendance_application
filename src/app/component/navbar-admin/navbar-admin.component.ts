@@ -30,7 +30,7 @@ export class NavbarAdminComponent {
     }
 
     showAllStudent(){
-      this.student=this.userService.fetchUserData('user').subscribe((res)=>{
+      this.student=this.userService.fetchUserData('user/getUser').subscribe((res)=>{
 
         for (let i = 0; i < this.student.length; i++) {
           

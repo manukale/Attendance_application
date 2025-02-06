@@ -30,7 +30,7 @@ export class RegisterComponent {
 registerUser(){
   if (this.myForm.valid) {
     // console.log(this.myForm.value, 'value of reactive form ');
-    this.userService.addUserData(this.myForm.value , 'user').subscribe((res)=> {
+    this.userService.addUserData(this.myForm.value , 'user/registerUser').subscribe((res)=> {
       alert("User Register Successfully")
       this.router.navigate(['/login'],{})
 
