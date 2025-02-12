@@ -18,7 +18,7 @@ export class AllteacherComponent {
 
   constructor(private userService : UserDataService){}
     ngOnInit(){
-     this.userService.fetchUserData('user').subscribe((res)=>{
+     this.userService.fetchUserData('user/getUser').subscribe((res)=>{
   
         for (let i = 0; i < res.length; i++) {
           
@@ -27,7 +27,7 @@ export class AllteacherComponent {
           }
           
         }
-  // console.log('student:',this.student);
+  // console.log('all teacher:',this.teacher);
       })
     }
 }

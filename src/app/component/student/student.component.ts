@@ -46,7 +46,9 @@ name : data.name
     )
   }
   showStudentProfile(data : any){
-    this.router.navigate(['/studentProfile',data.id],{
+    console.log('studentProfile:',data);
+    
+    this.router.navigate(['/studentProfile',data._id],{
       queryParams:{
         name : data.name,
         dept:data.dept,

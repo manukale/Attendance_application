@@ -15,6 +15,7 @@ import { LoginService } from '../../services/login.service';
 })
 export class LoginComponent {
   userData: any[] = [];
+  role : any =''
   user: {
     email: '',
     password: '',
@@ -40,75 +41,73 @@ export class LoginComponent {
   }
   
   loginForm(data: any) {
-    // console.log(this.userData, 'res in fetch data');
-    if (data.role === '' || data.email === '' || data.password === '') {
-      // console.log('role is not selected');
-      alert('Please Fill All The Details...')
+    
+    // if (data.role === '' || data.email === '' || data.password === '') {
+      
+    //   alert('Please Fill All The Details...')
 
-    }
-
-    for (let index = 0; index < this.userData.length; index++) {
-
-      if (data.email === this.userData[index].email && data.password === this.userData[index].password && data.role === this.userData[index].role) {
-        alert('Login Successfully...')
-        this.loginService.userLogin();
-        this.isUserMatched = true
+    // }
+    this.userService.fetchUserDataByEmail('user/getUserByEmail',data.email).subscribe((res) => {
+      this.session.storeUserData(this.user_key ,res)
+    })
+     this.userService.loginUser('user/loginUser',data).subscribe((res) => {
+     
+      if(res.msg === 'Login Successful'){
+        alert('Login Successful')
         
-        this.session.storeUserData(this.user_key ,
-        //   {id: this.userData[index].id,
-        //   name : this.userData[index].name , 
-        //   role : this.userData[index].role , 
-        //   dept:this.userData[index].dept,
-        //   email:this.userData[index].email,
-        //   photo : this.userData[index].photo,
-        //   password : this.userData[index].password
-        // }  
-        this.userData[index])
-
-        if (this.userData[index].role === 'Teacher') {
-          this.router.navigate(['/home'], {
-            queryParams: {
-              name: this.userData[index].name,
-              role: this.userData[index].role,
-              dept: this.userData[index].dept,
-            }
-          })   //query.param
-          // break;
-        }
-        if (this.userData[index].role === 'Admin') {
-
-          // console.log('Admin');
-          this.router.navigate(['/adminHome'], {
-            // queryParams : this.userData[index].name && this.userData[index].role
-            // queryParams: {
-            //   name: this.userData[index].name,
-            //   role: this.userData[index].role,
-            //   dept: this.userData[index].dept,
-            // }
-          })
-
-        }
-        if (this.userData[index].role === 'Student') {
-          this.router.navigate(['/studentHome'], {
-            // queryParams : this.userData[index].name && this.userData[index].role
-            // queryParams: {
-            //   name: this.userData[index].name,
-            //   role: this.userData[index].role,
-            //   dept: this.userData[index].dept,
-            // }
-          })
-
-        }
+        this.loginService.userLogin();
+  
+        
+        if(res.role === 'Teacher') {
+                this.router.navigate(['/home'], {})   
+              }
+        if(res.role === 'Student') {
+                this.router.navigate(['/studentHome'], {})   
+              }
+        if(res.role === 'Admin') {
+                this.router.navigate(['/adminHome'], {})   
+              }
+      }else{
+        alert('Check Credentials')
       }
-      // else{
-      //   alert('Check Your Credentials...')
-      //   break;
-      // }
+      
+    });
+    
+    // console.log('role:',this.role);
+    
 
-    }
-    if (this.isUserMatched === false) {
-      alert('Check Your Credentials')
+    // for (let index = 0; index < this.userData.length; index++) {
 
-    }
+    //   if (data.email === this.userData[index].email && data.password === this.userData[index].password && data.role === this.userData[index].role) {
+    //     alert('Login Successfully...')
+    //     this.loginService.userLogin();
+    //     this.isUserMatched = true
+        
+    //     this.session.storeUserData(this.user_key ,
+    //     this.userData[index])
+
+    //     if (this.userData[index].role === 'Teacher') {
+    //       this.router.navigate(['/home'], {
+    //       })   
+    //     }
+    //     if (this.userData[index].role === 'Admin') {
+
+    //       // console.log('Admin');
+    //       this.router.navigate(['/adminHome'], {
+    //       })
+
+    //     }
+    //     if (this.userData[index].role === 'Student') {
+    //       this.router.navigate(['/studentHome'], {
+    //       })
+
+    //     }
+    //   }
+
+    // }
+    // if (this.isUserMatched === false) {
+    //   alert('Check Your Credentials')
+
+    // }
   }
 }

@@ -1,49 +1,28 @@
 import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { NavbarAdminComponent } from "../navbar-admin/navbar-admin.component";
-import { isPlatformBrowser } from '@angular/common';
-import { BaseChartDirective } from 'ng2-charts'; // Import NgChartsModule
 import { CommonModule } from '@angular/common'; // Import CommonModule for basic Angular features
-import { ArcElement, BarElement, Chart, Legend, LinearScale, PieController, Tooltip } from 'chart.js';
-import { CategoryScale } from 'chart.js';
 import { UserDataService } from '../../services/user-data.service';
-
-Chart.register(CategoryScale,PieController,BarElement,LinearScale,Tooltip,Legend,ArcElement);
+//chart imports
+import { ArcElement, Chart, Legend, PieController, Tooltip } from "chart.js";
+import * as Highcharts from "highcharts";
+Chart.register(PieController, ArcElement, Tooltip, Legend);
 
 @Component({
   selector: 'app-admin-home',
   standalone:true,
-  imports: [NavbarAdminComponent,CommonModule,BaseChartDirective],
+  imports: [NavbarAdminComponent,CommonModule],
   templateUrl: './admin-home.component.html',
   styleUrl: './admin-home.component.css'
 })
 export class AdminHomeComponent {
-  isBrowser: boolean;
-
+  
   studentCount: number = 0;
   teacherCount: number = 0;
   adminCount: number = 0;
-
-  constructor(@Inject(PLATFORM_ID) private platformId: object, private userService: UserDataService) {
-    this.isBrowser = isPlatformBrowser(this.platformId);
+ chartInstance!: Highcharts.Chart;
+  constructor(private userService: UserDataService) {
+    
   }
-  
-  pieChartData = { 
-    labels: ['Student', 'Teacher', 'Admin'], 
-    datasets: [{ 
-      data: [0, 0, 0], // Initial empty data
-      backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-      hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'], 
-    }]
-  };
-
-  pieChartOptions = { 
-    responsive: true, 
-    plugins: { 
-      legend: { position: 'bottom' as const }, 
-      tooltip: { enabled: true }
-    }
-  };
-
 
   ngOnInit() {
     this.userService.fetchUserData('user/getUser').subscribe((res) => {
@@ -74,14 +53,49 @@ export class AdminHomeComponent {
     });
   }
 
-  updateChartData() {
-    this.pieChartData = { 
-      labels: ['Student', 'Teacher', 'Admin'], 
-      datasets: [{ 
-        data: [this.studentCount, this.teacherCount, this.adminCount], // Update data dynamically
-        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-        hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'], 
-      }]
-    };
+  ngAfterViewInit() {
+    this.renderChart();
   }
+
+  renderChart() {
+        this.chartInstance = Highcharts.chart("chartContainer", <Highcharts.Options>{
+          chart: { type: "pie" ,marginTop: 50},
+          title: { text: "" },
+          credits: { enabled: false },
+          tooltip: { pointFormat: "{series.name}: <b>{point.percentage:.1f}%</b>" },
+          accessibility: { point: { valueSuffix: "%" } },
+          plotOptions: {
+            pie: {
+              allowPointSelect: true,
+              cursor: "pointer",
+              dataLabels: {
+                enabled: true,
+                format: "<b>{point.name}</b>: {point.percentage:.1f} %",
+              },
+            },
+          },
+          series: [
+            {
+              name: "Count",
+              type: "pie",
+              data: [
+                { name: "Total Students", y: this.studentCount, color: '#FF6384'  },
+                { name: "Total Teacher", y: this.teacherCount  ,color:'#36A2EB'},
+                { name: "Total Admin", y: this.adminCount  ,color:'#FFCE56'},
+              ],
+            },
+          ],
+        });
+      }
+
+  updateChartData() {
+    if (this.chartInstance) {
+      this.chartInstance.series[0].setData([
+        { name: "Total Students", y: this.studentCount, color: '#FF6384'  },
+        { name: "Total Teacher", y: this.teacherCount  ,color:'#36A2EB'},
+        { name: "Total Admin", y: this.adminCount  ,color:'#FFCE56'},
+      ]);
+    }
+  }
+ 
 }

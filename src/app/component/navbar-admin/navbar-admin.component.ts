@@ -20,7 +20,7 @@ export class NavbarAdminComponent {
   
     ngOnInit(){
       this.currentUser=this.session.getUserData('user')
-      // console.log('manasi',this.currentUser);    
+      console.log('ADMIN manasi:',this.currentUser);    
     }
 
     signOut() {
