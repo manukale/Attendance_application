@@ -38,9 +38,9 @@ export class StudentComponent {
   }
   showAttendance(data : any){
     
-    this.router.navigate(['/attendance',data.id],{
+    this.router.navigate(['/attendance',data._id],{
       queryParams:{
-name : data.name
+      name : data.name
       }
     }
     )

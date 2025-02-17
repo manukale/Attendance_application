@@ -16,7 +16,7 @@
             <button class="btn btn-style" type="button"  routerLink="/studentHome"><i class="fa-solid fa-home"></i>
                 Home
             </button>
-            <button class="btn btn-style" type="button"  routerLink="/markAttendance"><i class="fa-solid fa-clipboard-user"></i>
+            <button class="btn btn-style" type="button"  (click)="addAttendance(currentUser)"><i class="fa-solid fa-clipboard-user"></i>
                 Mark Attendance
             </button>
             <button class="btn btn-style" type="button" (click)="attendanceHistory(currentUser)"><i class="fa-solid fa-clock-rotate-left"></i>

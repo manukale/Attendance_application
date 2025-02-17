@@ -47,4 +47,7 @@
         </tbody>
     </table>
     </div>
-    
+    <app-modal *ngIf = "isModalOpen" [title]="'Modal Open'" (closed)="closeModal()">
+        <h5>This is modal content!!!</h5>
+        <p>MOdal works!!!</p>
+      </app-modal>

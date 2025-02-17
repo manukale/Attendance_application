@@ -17,20 +17,13 @@ export class UserDataService {
   }
 
   fetchUserDataByEmail(link: string, email: any): Observable<any> {
-    console.log('service Email:',email);
-    console.log('service URL:',`${this.URL}/${link}`);
-    
-    return this.http.get(`${this.URL}/${link}/${email}`);
+   return this.http.get(`${this.URL}/${link}/${email}`);
   }
 
   loginUser(link:string, data: any ): Observable<any> {
-    console.log('data:',data);
-    
     return this.http.post(`${this.URL}/${link}`, data)
   }
   addUserData(data: any , link:string): Observable<any> {
-    console.log("addUserData serive");
-    
     return this.http.post(`${this.URL}/${link}`, data)
   }
 
@@ -38,8 +31,9 @@ export class UserDataService {
     return this.http.put(`${this.URL}/${link}/${id}` ,data );
   }
 
-  // addAttendanceData(data:any): Observable<any> {
-  //   return this.http.post(this.URL,data );
-  // }  /Users/manu/attendance_application/dist/assignment-1.1/browser
+  addAttendanceData(data:any, link:string): Observable<any> {
+    return this.http.post(`${this.URL}/${link}`, data)
+  }  
+  //Users/manu/attendance_application/dist/assignment-1.1/browser
   // /Users/manu/attendance_application/dist/assignment-1.1/browser
 }

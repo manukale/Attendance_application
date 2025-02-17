@@ -19,9 +19,6 @@ export class SessionStorageService {
   getUserData(key:string){
  
     const data = sessionStorage.getItem(key)
-    // return data 
-    console.log('getUserData::',data);
-    
     return data ? JSON.parse(data) : null
    
   }

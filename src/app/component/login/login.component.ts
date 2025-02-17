@@ -41,11 +41,8 @@ export class LoginComponent {
   }
   
   loginForm(data: any) {
-    
     // if (data.role === '' || data.email === '' || data.password === '') {
-      
     //   alert('Please Fill All The Details...')
-
     // }
     this.userService.fetchUserDataByEmail('user/getUserByEmail',data.email).subscribe((res) => {
       this.session.storeUserData(this.user_key ,res)

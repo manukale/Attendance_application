@@ -1,0 +1,32 @@
+.modal-backdrop {
+    position: fixed;
+    top: 0; left: 0;
+    width: 50%; height: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    /* z-index: 1000; Ensure it is above everything */
+  }
+  
+  .modal {
+    position: fixed;
+    top: 50%; left: 50%;
+    /* transform: translate(-50%, -50%); */
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* z-index: 1010; Ensure modal is above backdrop */
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+  }
+  

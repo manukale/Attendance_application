@@ -20,9 +20,6 @@ currentUser : any
   
     ngOnInit(){
       this.currentUser=this.session.getUserData('user')
-      console.log('manasi',this.currentUser);
-      console.log("User from session:", this.currentUser);
-      
     }
     getAttendance(){
       

@@ -21,12 +21,10 @@ constructor(private session : SessionStorageService,private userservice : UserDa
 
 ngOnInit(){
   this.currentUser=this.session.getUserData('user') 
-  this.userservice.fetchUserData('attendance').subscribe((res)=>{
+  this.userservice.fetchUserData('attendance/getAttendance').subscribe((res)=>{
     console.log(this.currentUser);
     for (let i = 0; i < res.length; i++) {
       if (res[i].dept === this.currentUser.dept) {
-        console.log('manasi');
-        
         this.attendance.push(res[i])
       }
     }

@@ -24,14 +24,14 @@ this.currentUser= this.session.getUserData('user')
   }
 
   addAttendance(data : any){
-    data.studId = this.currentUser.id
+    console.log('current User: ',this.currentUser);
+    
+    data.user = this.currentUser._id
     data.name = this.currentUser.name
     data.dept = this.currentUser.dept
-    if(data.punchIn){
-      data.isPresent =true
-    }
+    
 // console.log('mark-attendance:',data);
-this.userservice.addUserData(data , 'attendance').subscribe((ele)=>{
+this.userservice.addAttendanceData(data , 'attendance/addAttendance').subscribe((ele)=>{
   alert('Attendance Mark Successfully')
 
 })

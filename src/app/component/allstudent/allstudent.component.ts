@@ -7,11 +7,12 @@ import { SessionStorageService } from '../../services/session-storage.service';
 import { NavbarTeacherComponent } from "../navbar-teacher/navbar-teacher.component";
 import { FormsModule } from '@angular/forms';
 import { SearchFilterPipe } from '../../pipes/search-filter.pipe';
+import { ModalComponent } from "../modal/modal.component";
 
 @Component({
   selector: 'app-allstudent',
   standalone:true,
-  imports: [NavbarAdminComponent, CommonModule, NavbarTeacherComponent,FormsModule,SearchFilterPipe],
+  imports: [NavbarAdminComponent, CommonModule, NavbarTeacherComponent, FormsModule, SearchFilterPipe, ModalComponent],
   templateUrl: './allstudent.component.html',
   styleUrl: './allstudent.component.css'
 })
@@ -20,24 +21,24 @@ export class AllstudentComponent {
 student :any[]=[]
 searchText :string =  '';
 
+isModalOpen = false
+
 constructor(private userService : UserDataService, private router : Router, private session : SessionStorageService){}
   ngOnInit(){
     this.currentUser=this.session.getUserData('user') 
    this.userService.fetchUserData('user/getUser').subscribe((res)=>{
 
       for (let i = 0; i < res.length; i++) {
-        
         if(res[i].role === 'Student'){
           this.student.push(res[i])
         }
-        
       }
 // console.log('student:',this.student);
     })
   }
 
   showAttendance(data : any){
-    this.router.navigate(['/attendance', data.id],{
+    this.router.navigate(['/attendance', data._id],{
       queryParams:{
         name : data.name
       }
@@ -45,17 +46,26 @@ constructor(private userService : UserDataService, private router : Router, priv
     )
   }
 
-  showStudentProfile(stud : any){
-    // console.log('showStudentProfile:',student);
-    this.router.navigate(['/studentProfile',stud.id],{
-      queryParams:{
-        name : stud.name,
-        dept:stud.dept,
-        role:stud.role,
-        // photo:stud.photo,
-        email:stud.email
+  // showStudentProfile(stud : any){
+  //   // console.log('showStudentProfile:',student);
+  //   this.router.navigate(['/studentProfile',stud._id],{
+  //     queryParams:{
+  //       name : stud.name,
+  //       dept:stud.dept,
+  //       role:stud.role,
+  //       // photo:stud.photo,
+  //       email:stud.email
 
-      }
-    })
+  //     }
+  //   })
+  // }
+  showStudentProfile(stud : any){
+    console.log('opening modal');
+    
+    this.isModalOpen = true
+  }
+  closeModal(){
+    console.log('closing modal');
+    this.isModalOpen =false
   }
 }

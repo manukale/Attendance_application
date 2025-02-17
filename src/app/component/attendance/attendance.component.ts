@@ -27,7 +27,7 @@ export class AttendanceComponent {
     // console.log('attendance history',this.currentUser);
     
     this.route.params.subscribe((p) => {
-      // console.log(p['id']);
+      console.log(p['id']);
       this.id = p['id']
     });
 
@@ -35,13 +35,13 @@ export class AttendanceComponent {
 
       this.studentName = ele.get('name')
     })
-    this.userservice.fetchUserData('attendance').subscribe((res)=>{
-      // console.log(res);
+    this.userservice.fetchUserData('attendance/getAttendance').subscribe((res)=>{
       for (let i = 0; i < res.length; i++) {
-        if (res[i].studId === this.id) {
+        if (res[i].user._id === this.id) {
           this.attendance.push(res[i])
         }
       }
+      
     })
 
   }

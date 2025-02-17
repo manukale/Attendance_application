@@ -5,8 +5,8 @@
 
         <form class="text" #myForm = "ngForm" (ngSubmit)="addAttendance(myForm.value)">
     <div class="container" style="display: flex; flex-direction: column; gap: 10px; justify-content: center;">
-            <label>Enter Date:</label>
-<input type="date" name="date"  [(ngModel)]="date" #date="ngModel" style="width:500px" size="small"/>
+            <!-- <label>Enter Date:</label>
+<input type="date" name="date"  [(ngModel)]="date" #date="ngModel" style="width:500px" size="small"/> -->
 <label>Enter Punch In Time:</label>
 <input type="time" name="punchIn" [(ngModel)]="punchin" #punchin="ngModel" style="width:500px" size="small"/>
 <label>Enter Punch Out Time:</label>

@@ -17,6 +17,7 @@ import { StudentProfileComponent } from './component/student-profile/student-pro
 import { AllAttendanceComponent } from './component/all-attendance/all-attendance.component';
 import { AllstudentComponent } from './component/allstudent/allstudent.component';
 import { AllteacherComponent } from './component/allteacher/allteacher.component';
+import { PagenotfoundComponent } from './component/pagenotfound/pagenotfound.component';
 
 export const routes: Routes = [
     {path:"", component:LoginComponent},
@@ -41,6 +42,7 @@ export const routes: Routes = [
     {path:"teacherpassword", component:TeacherPasswordresetComponent, canActivate:[authGuard]},
 
     {path:"attendance/:id", component:AttendanceComponent, canActivate:[authGuard]},
-    {path:"markAttendance", component:MarkAttendanceComponent, canActivate:[authGuard]},
+    // {path:"markAttendance", component:MarkAttendanceComponent, canActivate:[authGuard]},
     {path:"allAttendence", component:AllAttendanceComponent, canActivate:[authGuard]},
+    {path:"**", component:PagenotfoundComponent},
 ];
