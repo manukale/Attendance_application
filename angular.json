@@ -16,12 +16,8 @@
             "outputPath": "dist/assignment-1.1",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "allowedCommonJsDependencies": [
-        "highcharts"
-     ],
-            "polyfills": [
-              "zone.js"
-            ],
+            "allowedCommonJsDependencies": ["highcharts"],
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
