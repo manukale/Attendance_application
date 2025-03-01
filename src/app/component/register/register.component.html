@@ -43,10 +43,12 @@
         <div *ngIf="myForm.get('role')?.invalid && myForm.get('role')?.touched" class="text-danger">
             Role is required
         </div>
+        <label>Upload Photo:</label>
+        <input class="form-control form-control-sm" name="photo" type="file" formControlName="photo"  (change)="onFileSelected($event)" > 
         <button class="btn btn-style " type="submit">Register</button>
     </form>
 </div>
-<h6 style="margin-top: 15px;  text-align: center; color: #022554;">Already Have Account? <a href="/login" style="color:#022554;">Login</a></h6>
+<h6  style="margin-top: 15px;  text-align: center; color: #022554; font-size: 13px;">Already Have Account? <a href="/login" style="color:#022554;">Login</a></h6>
 </div>
 
 

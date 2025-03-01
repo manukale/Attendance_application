@@ -9,8 +9,8 @@ export class UserDataService {
   user: any
   constructor(private http: HttpClient) { }
 
-  private URL = 'http://localhost:3000';
-  // private ATTENDANCE_URL = 'http://localhost:3000/attendance';
+   URL = 'http://localhost:3000';
+  // private ATTENDANCE_URL = 'http://localhost:3000/photos/photo1740381853756.jpg';
 
   fetchUserData(link:string): Observable<any> {
     return this.http.get(`${this.URL}/${link}`);
@@ -24,16 +24,23 @@ export class UserDataService {
     return this.http.post(`${this.URL}/${link}`, data)
   }
   addUserData(data: any , link:string): Observable<any> {
+    console.log(data);
+    
     return this.http.post(`${this.URL}/${link}`, data)
   }
 
   updateUserData(id:string,data:any, link:string): Observable<any> {
+    console.log('update User::',data);
+    console.log('update User id::',id);
+    
     return this.http.put(`${this.URL}/${link}/${id}` ,data );
+  }
+  deleteUserData(link:string,id:string,data: any ): Observable<any> {
+    return this.http.delete(`${this.URL}/${link}/${id}` ,data );
   }
 
   addAttendanceData(data:any, link:string): Observable<any> {
     return this.http.post(`${this.URL}/${link}`, data)
   }  
-  //Users/manu/attendance_application/dist/assignment-1.1/browser
-  // /Users/manu/attendance_application/dist/assignment-1.1/browser
+ 
 }

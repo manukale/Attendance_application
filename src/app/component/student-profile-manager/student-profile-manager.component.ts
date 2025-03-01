@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { SessionStorageService } from '../../services/session-storage.service';
 import { FormsModule } from '@angular/forms';
 import { UserDataService } from '../../services/user-data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-student-profile-manager',
@@ -14,27 +15,45 @@ import { UserDataService } from '../../services/user-data.service';
 })
 export class StudentProfileManagerComponent {
 currentUser: any
+selectedFile: File | null = null;
 
-constructor(private session : SessionStorageService, private userService: UserDataService){}
+constructor(private session : SessionStorageService, private userService: UserDataService,private router : Router){}
 
 ngOnInit(){
   this.currentUser=this.session.getUserData('user')
-  // console.log('currentUser:',this.currentUser);
+  console.log('currentUser:',this.currentUser);
   
 }
 
+onFileSelected(event: any) {
+  const file = event.target.files[0]; // Get the selected file
+  if (file) {
+    this.selectedFile = file; // Store file in class property
+  }
+}
+
 updateUser(data : any){
-console.log('data student profile:',data);
-data.role = this.currentUser.role
-data.password = this.currentUser.password
+// data.role = this.currentUser.role
+// data.password = this.currentUser.password
 
-  const fileName = data.photo.split('\\' ).pop(); // Extracts 'girp2.png'
-  console.log(fileName); 
-  data.photo = `profilePhoto/${fileName}`
+//   const fileName = data.photo.split('\\' ).pop(); // Extracts 'girp2.png'
+//   console.log(fileName); 
+//   data.photo = `profilePhoto/${fileName}`
+const formData = new FormData();
+    formData.append('name', data.name);
+    formData.append('email', data.email);
+    formData.append('dept', data.dept);
+    if (this.selectedFile) {
+      console.log('**',this.selectedFile);
+      
+      formData.append('photo', this.selectedFile); 
+  }
+console.log('formData',formData);
 
-this.userService.updateUserData(this.currentUser.id,data, 'user/updateUser').subscribe((res)=> {
-  alert("User Updated Successfully")
-  // this.router.navigate(['/'],{})
+this.userService.updateUserData(this.currentUser._id,formData, 'user/updateUser').subscribe((res)=> {
+  alert(res.msg)
+  this.router.navigate(['/studentHome'],{})
+  // this.session.storeUserData('user' ,res)
 
 })
 }

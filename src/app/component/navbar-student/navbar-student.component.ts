@@ -14,6 +14,7 @@ import { UserDataService } from '../../services/user-data.service';
 export class NavbarStudentComponent {
 
 currentUser : any
+img:any
     constructor(private router: Router,  
       private session : SessionStorageService, 
       private userservice : UserDataService, 
@@ -21,6 +22,7 @@ currentUser : any
   
     ngOnInit(){
       this.currentUser=this.session.getUserData('user')
+      this.img = this.userservice.URL+this.currentUser.photo
       
     }
   

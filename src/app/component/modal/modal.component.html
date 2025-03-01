@@ -1,14 +1,28 @@
-<div class="modal-backdrop" (click)="close()"></div>
-<div class="modal">
-  <div class="modal-header">
-    <h3>{{ title }}</h3>
-    <button class="close-btn" (click)="close()">×</button>
-  </div>
-  <div class="modal-body">
-    <p>Manasi</p>
-    <ng-content></ng-content>
-  </div>
-  <div class="modal-footer">
-    <!-- <button (click)="close()">Close</button> -->
-  </div>
-</div>
+
+<mat-dialog-actions class="action">
+  <button mat-button  (click)="close()">X</button>
+</mat-dialog-actions>
+<h2 mat-dialog-title>Student Profile</h2>
+<mat-dialog-content >
+    <form #myForm = "ngForm" (ngSubmit)="updateUser(myForm.value)" >
+      <div  style="display: flex; flex-direction: column; gap: 10px; justify-content: center;">
+          <img src="http://localhost:3000{{data.student.photo}}" class=" profilePhoto"/>
+          <label>Name:</label>
+          <input type="text" name="name" [(ngModel)]="data.student.name" #data.student.name="ngModel"   size="small" />
+          <label>Email:</label>
+          <input type="text" name="email" [(ngModel)]="data.student.email" #data.student.email="ngModel"  size="small" />
+          <label>Department:</label>
+          <input type="text" name="dept" [(ngModel)]="data.student.dept" #data.student.dept="ngModel"  size="small" />
+          <label>Role:</label>
+          <input type="text" name="role" [(ngModel)]="data.student.role" #data.student.role="ngModel"  size="small"  />
+
+         
+              <label >change profile photo:</label>
+              <input class="form-control form-control-sm" name="photo" type="file" [(ngModel)]="data.student.photo" #data.student.photo="ngModel" (change)="onFileSelected($event)" >
+      
+          <button  type="submit">Update Profile</button>
+
+      </div>
+  </form>
+  </mat-dialog-content>
+  

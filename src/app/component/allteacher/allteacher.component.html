@@ -4,23 +4,35 @@
         <input id="search" [(ngModel)]="searchText" placeholder="Search" class="form-control search-style" >
     </div>
     <!-- <p>allstudent works!</p> -->
-    <table class="table table-light table-hover " style="width: 1000px;margin-top: 20px;">
+    <table class="table table-light table-hover " style="margin-top: 20px;">
         <thead>
             <tr>
+                <th>Photo</th>
                 <th>Name</th>
                 <th>Role</th>
                 <th>Email</th>
                 <th>Department</th>
-                <!-- <th></th> -->
-                <!-- <th></th> -->
+                <th>Profile</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let teacher of teacher | searchFilter : searchText: 'name' ">
+                <td><img src="http://localhost:3000{{ teacher.photo }}" class=" profilePhoto"/></td>
                 <td>{{ teacher.name }}</td>
                 <td>{{ teacher.role }}</td>
                 <td>{{ teacher.email }}</td>
                 <td>{{ teacher.dept }}</td>
+                <td>
+                    <button class="btn btn-outline-primary" (click)="showTeacherProfile(teacher)">
+                        <i class="fa-solid fa-user"></i>
+                    </button>
+                </td> 
+                <td>
+                    <button class="btn btn-outline-danger" (click)="deleteUser(teacher)">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                </td>
             </tr>
         </tbody>
     </table>

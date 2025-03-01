@@ -50,7 +50,7 @@ export class LoginComponent {
      this.userService.loginUser('user/loginUser',data).subscribe((res) => {
      
       if(res.msg === 'Login Successful'){
-        alert('Login Successful')
+        alert(res.msg)
         
         this.loginService.userLogin();
   
@@ -65,7 +65,7 @@ export class LoginComponent {
                 this.router.navigate(['/adminHome'], {})   
               }
       }else{
-        alert('Check Credentials')
+        alert(res.msg)
       }
       
     });

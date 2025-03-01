@@ -13,6 +13,7 @@ import { UserDataService } from '../../services/user-data.service';
 })
 export class NavbarTeacherComponent {
 currentUser : any
+img:any
     constructor(private router: Router,  
       private session : SessionStorageService, 
       private loginService : LoginService,
@@ -20,6 +21,7 @@ currentUser : any
   
     ngOnInit(){
       this.currentUser=this.session.getUserData('user')
+      this.img = this.userService.URL+this.currentUser.photo
     }
     getAttendance(){
       

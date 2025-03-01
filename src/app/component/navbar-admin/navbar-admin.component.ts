@@ -14,13 +14,17 @@ import { UserDataService } from '../../services/user-data.service';
 export class NavbarAdminComponent {
   currentUser : any
   student :any
+  img : any
  constructor(private router: Router,  private session : SessionStorageService , private loginService : LoginService,
   private userService : UserDataService
  ) { }
   
     ngOnInit(){
+      
       this.currentUser=this.session.getUserData('user')
-      console.log('ADMIN manasi:',this.currentUser);    
+      this.img = this.userService.URL+this.currentUser.photo
+      // console.log('ADMIN manasi:',this.currentUser);    
+      // console.log('photoURL::',this.img+this.currentUser.photo);
     }
 
     signOut() {
