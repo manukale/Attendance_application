@@ -25,17 +25,21 @@ export class StudentComponent {
 
   ngOnInit() {
     this.currentUser = this.session.getUserData('user')
+  this.fetchData();
+  }
+  fetchData(){
     this.student = []
     this.userService.fetchUserData('user/getUser').subscribe((res) => {
       // console.log(res);
       for (let i = 0; i < res.length; i++) {
         if (res[i].role === 'Student' && res[i].dept === this.currentUser.dept) {
+          res[i].photo = this.userService.URL + res[i].photo
+          console.log('checking student photo: ',this.student);
           this.student.push(res[i])
         }
       }
-      // console.log(this.student);
     });
-  }
+   }
   showAttendance(data : any){
     
     this.router.navigate(['/attendance',data._id],{
@@ -58,6 +62,14 @@ export class StudentComponent {
 
       }
     })
+  }
+  deleteUser(user : any){
+    // console.log('for delete user:',id);
+    this.userService.deleteUserData('user/deleteUser',user._id,user).subscribe((res)=>{
+      alert(res.msg)
+     this.fetchData()
+    })
+
   }
 
 }

@@ -11,9 +11,23 @@
         <input placeholder="Enter Email Here" type="text"  name="email" [(ngModel)]="user.email" #email="ngModel"/>
 
         <label>Enter Password:</label>
-        <input placeholder="Enter Password Here" type="password"  name="password" [(ngModel)]="user.password" #password="ngModel"/>
-
-        <div>Login As:</div>
+        <input placeholder="Enter Password Here" type="password"  name="password" [(ngModel)]="user.password" #password="ngModel">
+         <button class="btn" type="button" style="text-align: right; color: #022554;"  (click)="forgetPassword()">Forget Password</button>
+        
+        
+        <!-- <div >
+            <input 
+              type="{{isPasswordVisible}} ? 'text' : 'password'" 
+              
+              placeholder="Enter password">
+            
+            <button type="button" class="toggle-btn" (click)="togglePassword()">
+              <span *ngIf="isPasswordVisible">&#128064;</span> 👀 Eye Open
+              <span *ngIf="!isPasswordVisible">&#128065;</span> Eye Closed
+            </button>
+          </div> -->
+       
+        <!-- <div>Login As:</div>
         <div class="radio-btn"  >
             <input  type="radio" name="role" id="inlineRadio1" value="Student" [(ngModel)]="user.role" #role="ngModel">
             <label class="form-check-label" for="inlineRadio1">Student</label>
@@ -23,11 +37,14 @@
           
             <input  type="radio" name="role" id="inlineRadio3" value="Admin" [(ngModel)]="user.role" #role="ngModel">
             <label class="form-check-label" for="inlineRadio3">Admin </label>
-          </div>
+          </div> -->
 
         <button class="btn btn-style mt-5" type="submit">Login Here</button>
     </form>
     <h6  style="margin-top: 385px; text-align: center; color: #022554;font-size: 13px;">Don't Have Account? <a href="/register" style="color:#022554;">Sign Up</a></h6>
+    <!-- <button class="btn"  style="text-align: right; color: #022554;" (click)="forgetPassword()">
+      Forget Password?
+    </button> -->
 </div>
 </div>
 </div>

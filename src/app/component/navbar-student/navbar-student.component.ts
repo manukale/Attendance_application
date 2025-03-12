@@ -42,6 +42,7 @@ img:any
     }
 
     attendanceHistory(data : any){
+      console.log('attendance history:',data);
       
       this.router.navigate(['/attendance', data._id],{
         queryParams:{

@@ -24,8 +24,6 @@ export class AttendanceComponent {
 
   ngOnInit(){
     this.currentUser=this.session.getUserData('user') 
-    // console.log('attendance history',this.currentUser);
-    
     this.route.params.subscribe((p) => {
       console.log(p['id']);
       this.id = p['id']
@@ -41,8 +39,8 @@ export class AttendanceComponent {
           this.attendance.push(res[i])
         }
       }
-      
     })
+    // console.log(this.attendance);
 
   }
   

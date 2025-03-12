@@ -29,11 +29,11 @@ export class AllteacherComponent {
         for (let i = 0; i < res.length; i++) {
           
           if(res[i].role === 'Teacher'){
+            res[i].photo = this.userService.URL + res[i].photo
             this.teacher.push(res[i])
           }
           
         }
-  // console.log('all teacher:',this.teacher);
       })
      }
      showTeacherProfile(student : any) {

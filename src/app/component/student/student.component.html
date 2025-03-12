@@ -14,19 +14,20 @@
         <table class="table table-light table-hover " style="width: 1000px;">
             <thead>
                 <tr>
-                    <th>Id</th>
+                    <th>Photo</th>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Department</th>
                     <th>Role</th>
                     <th>Attendance</th>
                     <th>Profile</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let students of student | searchFilter : searchText: 'name' ">
-                    <td>{{ students.id }}</td>
-                    <!-- <td><img src="{{ students.photo }}" class="profilePhoto"/></td> -->
+                    
+                    <td><img src="{{ students.photo }}" class="profilePhoto"/></td>
                     <td>{{ students.name }}</td>
                     <td>{{ students.email }}</td>
                     <td>{{ students.dept }}</td>
@@ -41,7 +42,11 @@
                         <i class="fa-solid fa-user"></i>
                     </button>
                 </td>
-                    
+                <td>
+                    <button class="btn btn-outline-danger" (click)="deleteUser(students)">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                </td>
                 </tr>
             </tbody>
         </table>

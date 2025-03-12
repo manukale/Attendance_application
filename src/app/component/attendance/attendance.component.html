@@ -9,13 +9,13 @@
 </div>
 <div class="container" style="display: flex;justify-content: center; ">
     <div style="margin: 30px; ">
-        <h5>Student Name : {{studentName}} </h5>
+        <h5 style="font-size: x-large;">Student Name : {{studentName}} </h5>
         <table class="table table-light table-hover " style="width: 1000px;margin-top: 20px;">
             <thead>
                 <tr>
                     <th>Date</th>
                     <th>Punch In</th>
-                    <th>Punch Out</th>
+                    <!-- <th>Punch Out</th> -->
                     <th>Present</th>
                     <!-- <th></th> -->
                 </tr>
@@ -24,7 +24,7 @@
                 <tr *ngFor="let attendance of attendance">
                     <td>{{ attendance.date }}</td>
                     <td>{{ attendance.punchIn }}</td>
-                    <td>{{ attendance.punchOut }}</td>
+                    <!-- <td>{{ attendance.punchOut }}</td> -->
                     <td>{{ attendance.isPresent === true ? 'Present' : 'Absent'  }}</td>
                 </tr>
             </tbody>

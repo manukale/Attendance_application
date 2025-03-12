@@ -9,7 +9,8 @@ export class UserDataService {
   user: any
   constructor(private http: HttpClient) { }
 
-   URL = 'http://localhost:3000';
+  //  URL = 'http://localhost:3000';   //for local
+   URL = 'https://attendance-application-api.onrender.com/';  //for development
   // private ATTENDANCE_URL = 'http://localhost:3000/photos/photo1740381853756.jpg';
 
   fetchUserData(link:string): Observable<any> {

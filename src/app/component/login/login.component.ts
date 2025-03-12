@@ -5,17 +5,21 @@ import { UserDataService } from '../../services/user-data.service';
 import { HttpClientModule } from '@angular/common/http';
 import { SessionStorageService } from '../../services/session-storage.service';
 import { LoginService } from '../../services/login.service';
+import { CommonModule } from '@angular/common';
+import { log } from 'node:console';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterModule, FormsModule, HttpClientModule],
+  imports: [RouterModule, FormsModule, HttpClientModule,CommonModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
   userData: any[] = [];
   role : any =''
+  isPasswordVisible: boolean = false;
+
   user: {
     email: '',
     password: '',
@@ -30,6 +34,7 @@ export class LoginComponent {
       role: ''
     }
   }
+  
   fetchData() {
     this.userService.fetchUserData('user/getUser').subscribe((res) => {
       this.userData = res;
@@ -39,12 +44,16 @@ export class LoginComponent {
   ngOnInit() {
     this.fetchData();
   }
-  
+  togglePassword() {
+    this.isPasswordVisible = true;
+  }
+
   loginForm(data: any) {
     // if (data.role === '' || data.email === '' || data.password === '') {
     //   alert('Please Fill All The Details...')
     // }
     this.userService.fetchUserDataByEmail('user/getUserByEmail',data.email).subscribe((res) => {
+      
       this.session.storeUserData(this.user_key ,res)
     })
      this.userService.loginUser('user/loginUser',data).subscribe((res) => {
@@ -53,8 +62,7 @@ export class LoginComponent {
         alert(res.msg)
         
         this.loginService.userLogin();
-  
-        
+
         if(res.role === 'Teacher') {
                 this.router.navigate(['/home'], {})   
               }
@@ -106,5 +114,13 @@ export class LoginComponent {
     //   alert('Check Your Credentials')
 
     // }
+  }
+
+  forgetPassword(){
+    console.log('forgetPassword');
+    // this.router.navigateByUrl('/forgetPassword');
+    // this.router.navigate(['/forgetPassword'], { skipLocationChange: false });
+
+    this.router.navigate(['/forgetPassword'], {})   
   }
 }

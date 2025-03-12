@@ -21,6 +21,7 @@ constructor(private session : SessionStorageService, private userService: UserDa
 
 ngOnInit(){
   this.currentUser=this.session.getUserData('user')
+  this.currentUser.photo = this.userService.URL + this.currentUser.photo
   console.log('currentUser:',this.currentUser);
   
 }

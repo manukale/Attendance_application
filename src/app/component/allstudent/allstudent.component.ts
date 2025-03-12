@@ -37,6 +37,7 @@ constructor(public dialog: MatDialog,private userService : UserDataService, priv
 
     for (let i = 0; i < res.length; i++) {
       if(res[i].role === 'Student'){
+        res[i].photo = this.userService.URL + res[i].photo
         this.student.push(res[i])
       }
     }

@@ -30,7 +30,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let student of student | searchFilter :searchText : 'name' ">
-                <td><img src="http://localhost:3000{{ student.photo }}" class=" profilePhoto"/></td>
+                <td><img src="{{ student.photo }}" class=" profilePhoto"/></td>
                 <td>{{ student.name }}</td>
                 <td>{{ student.role }}</td>
                 <td>{{ student.email }}</td>
